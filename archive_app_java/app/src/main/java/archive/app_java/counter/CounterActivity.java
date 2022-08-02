@@ -1,12 +1,12 @@
 package archive.app_java.counter;
 
 import android.os.Bundle;
-import android.view.View;
 
-import androidx.lifecycle.Observer;
+import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.ViewModelProvider;
 
 import archive.app_java.BaseActivity;
+import archive.app_java.R;
 import archive.app_java.databinding.ActivityCounterBinding;
 
 public class CounterActivity extends BaseActivity {
@@ -20,26 +20,13 @@ public class CounterActivity extends BaseActivity {
 		// set ViewModel
 		vm = new ViewModelProvider(this).get(CounterViewModel.class);
 
-		// set viewBinding & layout
-		bind = ActivityCounterBinding.inflate(getLayoutInflater());
-		setContentView(bind.getRoot());
+		// set dataBinding & layout
+		bind = DataBindingUtil.setContentView(this, R.layout.activity_counter);
 
-		vm.count.observe(this, new Observer<Integer>() {
-			@Override
-			public void onChanged(Integer integer) {
-				bind.countShow.setText(Integer.toString(integer));
-			}
-		});
+		// set dataBinding LifeCycleOwner
+		bind.setLifecycleOwner(this);
 
-		bind.countPlus.setOnClickListener(this::click_listener_plus);
-		bind.countMinus.setOnClickListener(this::click_listener_minus);
-	}
-
-	private void click_listener_plus(View view) {
-		vm.increaseCount();
-	}
-
-	private void click_listener_minus(View view) {
-		vm.decreaseCount();
+		// set dataBinding variable
+		bind.setVm(vm);
 	}
 }

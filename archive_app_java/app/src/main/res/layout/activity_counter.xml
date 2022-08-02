@@ -1,45 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
 	xmlns:app="http://schemas.android.com/apk/res-auto"
 	xmlns:tools="http://schemas.android.com/tools"
-	android:layout_width="match_parent"
-	android:layout_height="match_parent"
 	tools:context=".counter.CounterActivity">
 
-	<com.google.android.material.textview.MaterialTextView
-		android:id="@+id/count_show"
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		android:text="Show Count"
-		android:textSize="56sp"
-		app:layout_constraintBottom_toBottomOf="parent"
-		app:layout_constraintEnd_toEndOf="parent"
-		app:layout_constraintStart_toStartOf="parent"
-		app:layout_constraintTop_toTopOf="parent"
-		app:layout_constraintVertical_bias="0.4" />
+	<data>
 
-	<com.google.android.material.button.MaterialButton
-		android:id="@+id/count_plus"
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		android:text="plus"
-		app:layout_constraintBottom_toBottomOf="parent"
-		app:layout_constraintEnd_toEndOf="parent"
-		app:layout_constraintHorizontal_bias="0.7"
-		app:layout_constraintStart_toStartOf="parent"
-		app:layout_constraintTop_toTopOf="parent"
-		app:layout_constraintVertical_bias="0.7" />
+		<variable
+			name="vm"
+			type="archive.app_java.counter.CounterViewModel" />
+	</data>
 
-	<com.google.android.material.button.MaterialButton
-		android:id="@+id/count_minus"
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		android:text="minus"
-		app:layout_constraintBottom_toBottomOf="parent"
-		app:layout_constraintEnd_toEndOf="parent"
-		app:layout_constraintHorizontal_bias="0.3"
-		app:layout_constraintStart_toStartOf="parent"
-		app:layout_constraintTop_toTopOf="parent"
-		app:layout_constraintVertical_bias="0.7" />
+	<androidx.constraintlayout.widget.ConstraintLayout
+		android:layout_width="match_parent"
+		android:layout_height="match_parent">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+		<com.google.android.material.textview.MaterialTextView
+			android:id="@+id/count_show"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="@{Integer.toString(vm.count)}"
+			android:textSize="56sp"
+			app:layout_constraintBottom_toBottomOf="parent"
+			app:layout_constraintEnd_toEndOf="parent"
+			app:layout_constraintStart_toStartOf="parent"
+			app:layout_constraintTop_toTopOf="parent"
+			app:layout_constraintVertical_bias="0.4" />
+
+		<com.google.android.material.button.MaterialButton
+			android:id="@+id/count_plus"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:onClick="@{v -> vm.increaseCount()}"
+			android:text="plus"
+			app:layout_constraintBottom_toBottomOf="parent"
+			app:layout_constraintEnd_toEndOf="parent"
+			app:layout_constraintHorizontal_bias="0.7"
+			app:layout_constraintStart_toStartOf="parent"
+			app:layout_constraintTop_toTopOf="parent"
+			app:layout_constraintVertical_bias="0.7" />
+
+		<com.google.android.material.button.MaterialButton
+			android:id="@+id/count_minus"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:onClick="@{v -> vm.decreaseCount()}"
+			android:text="minus"
+			app:layout_constraintBottom_toBottomOf="parent"
+			app:layout_constraintEnd_toEndOf="parent"
+			app:layout_constraintHorizontal_bias="0.3"
+			app:layout_constraintStart_toStartOf="parent"
+			app:layout_constraintTop_toTopOf="parent"
+			app:layout_constraintVertical_bias="0.7" />
+
+	</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
