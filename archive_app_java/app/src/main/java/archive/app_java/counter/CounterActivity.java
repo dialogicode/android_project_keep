@@ -23,19 +23,19 @@ public class CounterActivity extends BaseActivity {
 		bind = ActivityCounterBinding.inflate(getLayoutInflater());
 		setContentView(bind.getRoot());
 
-		bind.countShow.setText(Integer.toString(vm.count));
-		
+		bind.countShow.setText(Integer.toString(vm.count.getValue()));
+
 		bind.countPlus.setOnClickListener(this::click_listener_plus);
 		bind.countMinus.setOnClickListener(this::click_listener_minus);
 	}
 
 	private void click_listener_plus(View view) {
-		vm.count++;
-		bind.countShow.setText(Integer.toString(vm.count));
+		vm.increaseCount();
+		bind.countShow.setText(Integer.toString(vm.count.getValue()));
 	}
 
 	private void click_listener_minus(View view) {
-		vm.count--;
-		bind.countShow.setText(Integer.toString(vm.count));
+		vm.decreaseCount();
+		bind.countShow.setText(Integer.toString(vm.count.getValue()));
 	}
 }
