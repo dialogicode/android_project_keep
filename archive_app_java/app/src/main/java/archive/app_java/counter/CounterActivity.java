@@ -3,6 +3,7 @@ package archive.app_java.counter;
 import android.os.Bundle;
 import android.view.View;
 
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import archive.app_java.BaseActivity;
@@ -23,7 +24,12 @@ public class CounterActivity extends BaseActivity {
 		bind = ActivityCounterBinding.inflate(getLayoutInflater());
 		setContentView(bind.getRoot());
 
-		bind.countShow.setText(Integer.toString(vm.count.getValue()));
+		vm.count.observe(this, new Observer<Integer>() {
+			@Override
+			public void onChanged(Integer integer) {
+				bind.countShow.setText(Integer.toString(integer));
+			}
+		});
 
 		bind.countPlus.setOnClickListener(this::click_listener_plus);
 		bind.countMinus.setOnClickListener(this::click_listener_minus);
@@ -31,11 +37,9 @@ public class CounterActivity extends BaseActivity {
 
 	private void click_listener_plus(View view) {
 		vm.increaseCount();
-		bind.countShow.setText(Integer.toString(vm.count.getValue()));
 	}
 
 	private void click_listener_minus(View view) {
 		vm.decreaseCount();
-		bind.countShow.setText(Integer.toString(vm.count.getValue()));
 	}
 }
