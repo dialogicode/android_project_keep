@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.Button;
 
 import archive.app_java.counter.CounterActivity;
+import archive.app_java.location.LocationActivity;
 
 public class MainActivity extends BaseActivity {
 
@@ -21,6 +22,11 @@ public class MainActivity extends BaseActivity {
 				Intent intent = new Intent(MainActivity.this, CounterActivity.class);
 				startActivity(intent);
 			}
+		});
+
+		Button location = findViewById(R.id.location);
+		location.setOnClickListener(v -> {
+			startActivity(new Intent(MainActivity.this, LocationActivity.class));
 		});
 	}
 }

@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	tools:context=".location.LocationActivity">
+
+	<data>
+
+		<variable
+			name="vm"
+			type="archive.app_java.location.LocationViewModel" />
+
+	</data>
+
+	<androidx.appcompat.widget.LinearLayoutCompat
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:orientation="vertical"
+		android:padding="10dp">
+
+		<androidx.appcompat.widget.LinearLayoutCompat
+			android:layout_width="match_parent"
+			android:layout_height="0dp"
+			android:layout_weight="2"
+			android:gravity="center">
+
+			<androidx.appcompat.widget.LinearLayoutCompat
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:orientation="vertical">
+
+				<androidx.appcompat.widget.LinearLayoutCompat
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:orientation="horizontal">
+
+					<androidx.appcompat.widget.AppCompatTextView
+						android:layout_width="0dp"
+						android:layout_height="wrap_content"
+						android:layout_weight="2"
+						android:text="Latitude"
+						android:textSize="24sp" />
+
+					<androidx.appcompat.widget.AppCompatTextView
+						android:layout_width="0dp"
+						android:layout_height="wrap_content"
+						android:layout_weight="3"
+						android:maxLines="1"
+						android:text='@{Double.toString(vm.latitude)}'
+						android:textSize="24sp" />
+
+				</androidx.appcompat.widget.LinearLayoutCompat>
+
+				<androidx.appcompat.widget.LinearLayoutCompat
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:orientation="horizontal">
+
+					<androidx.appcompat.widget.AppCompatTextView
+						android:layout_width="0dp"
+						android:layout_height="wrap_content"
+						android:layout_weight="2"
+						android:text="Longitude"
+						android:textSize="24sp" />
+
+					<androidx.appcompat.widget.AppCompatTextView
+						android:layout_width="0dp"
+						android:layout_height="wrap_content"
+						android:layout_weight="3"
+						android:maxLines="1"
+						android:text='@{Double.toString(vm.longitude)}'
+						android:textSize="24sp" />
+
+				</androidx.appcompat.widget.LinearLayoutCompat>
+
+				<androidx.appcompat.widget.LinearLayoutCompat
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:orientation="horizontal">
+
+					<androidx.appcompat.widget.AppCompatTextView
+						android:layout_width="0dp"
+						android:layout_height="wrap_content"
+						android:layout_weight="2"
+						android:text="Altitude"
+						android:textSize="24sp" />
+
+					<androidx.appcompat.widget.AppCompatTextView
+						android:layout_width="0dp"
+						android:layout_height="wrap_content"
+						android:layout_weight="3"
+						android:maxLines="1"
+						android:text='@{Double.toString(vm.altitude)}'
+						android:textSize="24sp" />
+
+				</androidx.appcompat.widget.LinearLayoutCompat>
+
+				<androidx.appcompat.widget.LinearLayoutCompat
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:orientation="horizontal">
+
+					<androidx.appcompat.widget.AppCompatTextView
+						android:layout_width="0dp"
+						android:layout_height="wrap_content"
+						android:layout_weight="2"
+						android:text="Accuracy"
+						android:textSize="24sp" />
+
+					<androidx.appcompat.widget.AppCompatTextView
+						android:layout_width="0dp"
+						android:layout_height="wrap_content"
+						android:layout_weight="3"
+						android:maxLines="1"
+						android:text='@{Float.toString(vm.accuracy)}'
+						android:textSize="24sp" />
+
+				</androidx.appcompat.widget.LinearLayoutCompat>
+
+				<androidx.appcompat.widget.LinearLayoutCompat
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:orientation="horizontal">
+
+					<androidx.appcompat.widget.AppCompatTextView
+						android:layout_width="0dp"
+						android:layout_height="wrap_content"
+						android:layout_weight="2"
+						android:text="Speed"
+						android:textSize="24sp" />
+
+					<androidx.appcompat.widget.AppCompatTextView
+						android:layout_width="0dp"
+						android:layout_height="wrap_content"
+						android:layout_weight="3"
+						android:maxLines="1"
+						android:text='@{Float.toString(vm.speed)}'
+						android:textSize="24sp" />
+
+				</androidx.appcompat.widget.LinearLayoutCompat>
+
+				<androidx.appcompat.widget.LinearLayoutCompat
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:orientation="horizontal">
+
+					<androidx.appcompat.widget.AppCompatTextView
+						android:layout_width="0dp"
+						android:layout_height="wrap_content"
+						android:layout_weight="2"
+						android:text="Address"
+						android:textSize="24sp" />
+
+					<androidx.appcompat.widget.AppCompatTextView
+						android:layout_width="0dp"
+						android:layout_height="wrap_content"
+						android:layout_weight="3"
+						android:text='@{vm.address}'
+						android:textSize="24sp" />
+
+				</androidx.appcompat.widget.LinearLayoutCompat>
+
+			</androidx.appcompat.widget.LinearLayoutCompat>
+
+		</androidx.appcompat.widget.LinearLayoutCompat>
+
+		<androidx.appcompat.widget.LinearLayoutCompat
+			android:layout_width="match_parent"
+			android:layout_height="0dp"
+			android:layout_weight="1"
+			android:gravity="center">
+
+			<androidx.appcompat.widget.LinearLayoutCompat
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:orientation="vertical">
+
+				<androidx.appcompat.widget.LinearLayoutCompat
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:gravity="center"
+					android:orientation="horizontal">
+
+					<com.google.android.material.switchmaterial.SwitchMaterial
+						android:id="@+id/update_sw"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:text="Location Updates"
+						android:textSize="24sp" />
+
+				</androidx.appcompat.widget.LinearLayoutCompat>
+
+				<androidx.appcompat.widget.LinearLayoutCompat
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:orientation="horizontal">
+
+					<androidx.appcompat.widget.AppCompatTextView
+						android:layout_width="0dp"
+						android:layout_height="wrap_content"
+						android:layout_weight="2"
+						android:text="Updates"
+						android:textSize="24sp" />
+
+					<androidx.appcompat.widget.AppCompatTextView
+						android:layout_width="0dp"
+						android:layout_height="wrap_content"
+						android:layout_weight="3"
+						android:maxLines="1"
+						android:text="@{vm.updates}"
+						android:textSize="24sp" />
+
+				</androidx.appcompat.widget.LinearLayoutCompat>
+
+			</androidx.appcompat.widget.LinearLayoutCompat>
+
+		</androidx.appcompat.widget.LinearLayoutCompat>
+
+		<androidx.appcompat.widget.LinearLayoutCompat
+			android:layout_width="match_parent"
+			android:layout_height="0dp"
+			android:layout_weight="1"
+			android:gravity="center">
+
+			<androidx.appcompat.widget.LinearLayoutCompat
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:orientation="vertical">
+
+				<androidx.appcompat.widget.LinearLayoutCompat
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:gravity="center"
+					android:orientation="horizontal">
+
+					<com.google.android.material.switchmaterial.SwitchMaterial
+						android:id="@+id/sensor_sw"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:text="GPS Sensor"
+						android:textSize="24sp" />
+
+				</androidx.appcompat.widget.LinearLayoutCompat>
+
+				<androidx.appcompat.widget.LinearLayoutCompat
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:orientation="horizontal">
+
+					<androidx.appcompat.widget.AppCompatTextView
+						android:layout_width="0dp"
+						android:layout_height="wrap_content"
+						android:layout_weight="2"
+						android:text="Sensor"
+						android:textSize="24sp" />
+
+					<androidx.appcompat.widget.AppCompatTextView
+						android:layout_width="0dp"
+						android:layout_height="wrap_content"
+						android:layout_weight="3"
+						android:maxLines="1"
+						android:text="@{vm.sensor}"
+						android:textSize="24sp" />
+
+				</androidx.appcompat.widget.LinearLayoutCompat>
+
+			</androidx.appcompat.widget.LinearLayoutCompat>
+
+		</androidx.appcompat.widget.LinearLayoutCompat>
+
+	</androidx.appcompat.widget.LinearLayoutCompat>
+
+</layout>
