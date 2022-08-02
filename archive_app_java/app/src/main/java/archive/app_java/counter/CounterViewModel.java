@@ -5,17 +5,22 @@ import androidx.lifecycle.MutableLiveData;
 import archive.app_java.BaseViewModel;
 
 public class CounterViewModel extends BaseViewModel {
-	public MutableLiveData<Integer> count = new MutableLiveData<>();
+	private MutableLiveData<Integer> count;
 
 	public CounterViewModel() {
-		count.setValue(0);
+		getCount().setValue(0);
+	}
+
+	public MutableLiveData<Integer> getCount() {
+		if (count == null) count = new MutableLiveData<>();
+		return count;
 	}
 
 	public void increaseCount() {
-		count.setValue(count.getValue() + 1);
+		getCount().setValue(getCount().getValue() + 1);
 	}
 
 	public void decreaseCount() {
-		count.setValue(count.getValue() - 1);
+		getCount().setValue(getCount().getValue() - 1);
 	}
 }
